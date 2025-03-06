@@ -2,19 +2,26 @@
 <html>
 <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam;">
-        
-        <!-- Use Hiro marker -->
-        <a-marker preset="hiro">
-            <a-entity 
+    <a-scene
+        embedded
+        arjs="trackingMethod: best; sourceType: webcam;"
+    >
+        <!-- Your Postcard as AR Target -->
+        <a-nft
+            type="nft"
+            url="https://YOUR_GITHUB_USERNAME.github.io/REPO_NAME/ar_targets/latest_postcard"
+        >
+            <!-- 3D Model to Display -->
+            <a-entity
+                gltf-model="https://arjs-cdn.s3.us-west-2.amazonaws.com/GLTF/dinosaur/scene.gltf"
+                scale="0.5 0.5 0.5"
                 position="0 0 0"
-                gltf-model="https://arjs-cdn.s3.us-west-2.amazonaws.com/GLTF/trex/scene.gltf"
-                scale="0.5 0.5 0.5">
-            </a-entity>
-        </a-marker>
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+            ></a-entity>
+        </a-nft>
         
         <a-entity camera></a-entity>
     </a-scene>
